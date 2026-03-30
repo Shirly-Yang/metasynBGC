@@ -4,7 +4,7 @@ from seqgrep import seqgrep
 
 
 #pathGCF='GCF_select_fold'
-#pathgenome='/mnt/nfs/5110v5/wjc/metagenome_BGCs/public_data/GEM/fna'
+#pathgenome='public_data/GEM/fna'
 #i='GCF_08376.txt'
 
 def high_score_contig(i,pathGCF,pathgenome,ratio,hits):
