@@ -2,7 +2,7 @@ import os
 from tqdm import tqdm
 from multiprocessing import Pool
 
-#pathgem='/mnt/nfs/5110v5/wjc/metagenome_BGCs/public_data/GEM/fna'
+#pathgem='public_data/GEM/fna'
 #pathGCF='GCF_select_fold'
 #thread=60
 #i='GCF_00061.txt'
