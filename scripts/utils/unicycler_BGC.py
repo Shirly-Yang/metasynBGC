@@ -53,9 +53,9 @@ def unicycler_run(para):
     MAGs=para[0]
     BGC=para[1]
     MAGs=MAGs.replace('_high_score_contig.fasta','')
-    pathroot='/mnt/nfs/5110v5/wjc/metagenome_BGCs/BIGFAM/unicycler/0831'
-    pathmagsroot='/mnt/nfs/5110v5/wjc/metagenome_BGCs/public_data'
-    #pathmagsroot='/mnt/nfs/5110v5/wjc/metagenome_BGCs/BIGFAM/unicycler'
+    pathroot='/path/to/unicycler/0831'
+    pathmagsroot='path/to/MAGs/public_data'
+    #pathmagsroot='/path/to/BIGFAM/unicycler'
 
     if os.path.exists(pathroot) == False:
         os.system('mkdir %s' % (pathroot))
@@ -63,7 +63,7 @@ def unicycler_run(para):
     if os.path.exists(pathbgc) == False:
         os.system('mkdir %s' % (pathbgc))
     
-    pathfasta=os.path.join('/mnt/nfs/5110v5/wjc/metagenome_BGCs/BIGFAM/mibig/mibig_fasta',BGC+'.fasta')
+    pathfasta=os.path.join('/path/to/BIGFAM/mibig/mibig_fasta',BGC+'.fasta')
     pathunic=os.path.join(pathroot,BGC)
     
     pathmags=os.path.join(pathmagsroot,MAGs)
@@ -79,12 +79,12 @@ def unicycler_run(para):
 
     pathassembly=os.path.join(pathunic,MAGs+'_unicycler.fasta','assembly.fasta')
     if os.path.exists(pathassembly) == False:
-        os.system('python /mnt/nfs/5110v5/wjc/Unicycler/unicycler-runner.py -1 %s/%s_R1.fastq -2 %s/%s_R2.fastq -l %s/bridge.fasta -t %s --mode bold -o %s_unicycler.fasta' % (pathunic,MAGs,pathunic,MAGs,pathunic,thread,pathunic+'/'+MAGs))
+        os.system('python /path/to/Unicycler/unicycler-runner.py -1 %s/%s_R1.fastq -2 %s/%s_R2.fastq -l %s/bridge.fasta -t %s --mode bold -o %s_unicycler.fasta' % (pathunic,MAGs,pathunic,MAGs,pathunic,thread,pathunic+'/'+MAGs))
         os.system('cp %s %s' % (pathassembly,pathunic+'/'+MAGs+'_assembly.fasta'))
     
     os.system('antismash %s --genefinding-tool prodigal  --cb-knownclusters  --output-dir %s --cpus %s' % (pathunic+'/'+MAGs+'_assembly.fasta',pathunic+'/'+MAGs+'_BGC',thread))
 
-    cp1=os.path.join('/mnt/nfs/5110v5/wjc/metagenome_BGCs/BIGFAM/GCF_select_fold',BGC,BGC+'_BGC_result',MAGs+'_high_score_contig.fasta')
+    cp1=os.path.join('/path/to/BIGFAM/GCF_select_fold',BGC,BGC+'_BGC_result',MAGs+'_high_score_contig.fasta')
     cp2=pathunic+'/'+MAGs+'_BGC'+'/'+MAGs+'_high_score_contig.fasta'
     os.system('cp -r %s %s' % (cp1,cp2))
   
