@@ -16,10 +16,10 @@ pathNCBI_gbk='NCBI_selected_fasta'
 pathmibig_gbk='mibig/fasta'
 pathGCF_list='GCF_select_list'
 GCF_fold_root='GCF_select_fold'
-pathgenome='/mnt/nfs/5110v5/wjc/metagenome_BGCs/public_data'
-mibig_sum='/mnt/nfs/5110v5/wjc/metagenome_BGCs/BIGFAM/OTU/mibig_summary.txt'
-mags_otu='/mnt/nfs/5110v5/wjc/metagenome_BGCs/BIGFAM/OTU/OTU_OMD_GEM.csv'
-#pathgenome='/mnt/nfs/5110v5/wjc/metagenome_BGCs/public_data/GEM/test'
+pathgenome='path/to/MAGs/public_data'
+mibig_sum='path/to/OTU/mibig_summary.txt'
+mags_otu='path/to/MAGs/OTU/OTU_OMD_GEM.csv'
+
 BGC_select_ratio=0.8
 contig_hits=3
 thread=int(sys.argv[1])
