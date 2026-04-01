@@ -21,7 +21,7 @@ chemprop train \
   --pytorch-seed 42
 
 # 预测
-# 注意：如果你的输出目录里有多个ckpt，通常选 best checkpoint
+# 通常选 best checkpoint
 BEST_MODEL=$(find "${MODEL_DIR}" -name "*.ckpt" | head -n 1)
 
 chemprop predict \
